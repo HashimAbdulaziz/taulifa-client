@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --font-size: 16px;
+
+  /* ── Zone 1: Cream (hero) ── */
+  --cream:           #ECE2CE;  /* warm aged parchment — not screen-white */
+  --cream-deep:      #E0D4BD;  /* lower-hero / texture tint */
+  --bg-type:         #D2C4A6;  /* L1 — single tone for hero background letterforms */
+  --bg-phrase:       #A8916B;  /* L2 — single tone for hero background phrases */
+  --cream-ink:       #2C1A12;  /* dark text ON cream (≈9:1 on new cream) */
+  --cream-ink-soft:  #6B5040;  /* secondary text on cream */
+
+  /* ── Zone 2: Coffee sea (dark) ── */
+  --page:           #1A0F08;  /* base dark / hero-after-transition */
+  --section:        #2C1A0E;  /* products section surface */
+  --card:           #3D2314;  /* product card surface */
+  --card-hover:     #4E2E1A;  /* card hover */
+  --footer:         #140C06;  /* footer — darkest, grounds the page */
+
+  /* ── Borders ── */
+  --card-border:    #5A3A22;  /* card hairline — visible on section bg */
+  --hairline:       rgba(212, 168, 83, 0.18);  /* gold hairline */
+
+  /* ── Text on dark ── */
+  --heading:        #FAF5EC;  /* h1/h2 on dark — warmest cream */
+  --body:           #C9B89B;  /* body copy on dark — warm tan (AA) */
+  --muted:          #8A6F55;  /* captions on dark */
+
+  /* ── Accent ── */
+  --gold:           #D4A853;  /* prices, accents, primary CTA fill */
+  --gold-light:     #E8C97A;  /* hover */
+  --gold-deep:      #8B6A30;  /* currency units, subdued gold */
+
+  /* ── Brand red (RESTRICTED — logo + cream hero title only) ── */
+  --red-brand:      #C0392B;
+
+  --radius: 0.75rem;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-cream:           var(--cream);
+  --color-cream-deep:      var(--cream-deep);
+  --color-bg-type:         var(--bg-type);
+  --color-bg-phrase:       var(--bg-phrase);
+  --color-cream-ink:       var(--cream-ink);
+  --color-cream-ink-soft:  var(--cream-ink-soft);
+
+  --color-page:           var(--page);
+  --color-section:        var(--section);
+  --color-card:           var(--card);
+  --color-card-hover:     var(--card-hover);
+  --color-footer:         var(--footer);
+
+  --color-card-border:    var(--card-border);
+  --color-hairline:       var(--hairline);
+
+  --color-heading:        var(--heading);
+  --color-body:           var(--body);
+  --color-muted:          var(--muted);
+
+  --color-gold:           var(--gold);
+  --color-gold-light:     var(--gold-light);
+  --color-gold-deep:      var(--gold-deep);
+
+  --color-red-brand:      var(--red-brand);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans:         var(--font-plex), sans-serif;
+  --font-display:      var(--font-ruqaa), serif;
+  --font-display-ink:  var(--font-ruqaa-ink), serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  html {
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--page);
+    color: var(--body);
+    font-family: var(--font-plex), sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-ruqaa), serif;
+    font-weight: 400;
+  }
+
+  /* Accessible focus ring — gold, never removed */
+  *:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Reduced motion: the parallax/wave path is gated in JS; this is a safety net */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
