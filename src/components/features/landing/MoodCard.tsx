@@ -7,11 +7,12 @@ type MoodCardProps = {
   title: string;
   flavorNote: string;
   price: string;
+  icon: React.ReactNode;
   index: number;
   onAddToCart?: () => void;
 };
 
-export function MoodCard({ title, flavorNote, price, index, onAddToCart }: MoodCardProps) {
+export function MoodCard({ title, flavorNote, price, icon, index, onAddToCart }: MoodCardProps) {
   const [added, setAdded] = useState(false);
 
   function handleAdd() {
@@ -30,13 +31,16 @@ export function MoodCard({ title, flavorNote, price, index, onAddToCart }: MoodC
       whileHover={{ backgroundColor: '#4E2E1A', y: -4, transition: { duration: 0.25, ease: 'easeOut' } }}
       className="relative flex-1 min-w-45 min-h-105 rounded-xl overflow-hidden flex flex-col border border-card-border bg-card"
     >
-      {/* Visual zone — embossed mood letter (one step darker than the zone behind it) */}
+      {/* Visual zone — engraved gold icon over the embossed mood letter */}
       <div className="relative h-42.5 shrink-0 flex items-center justify-center overflow-hidden bg-section">
         <span
           aria-hidden="true"
-          className="font-display text-page text-[8.5rem] leading-none tracking-tighter select-none"
+          className="absolute font-display text-page text-[8.5rem] leading-none tracking-tighter select-none"
         >
           {title[0]}
+        </span>
+        <span className="relative" aria-hidden="true">
+          {icon}
         </span>
       </div>
 

@@ -1,5 +1,6 @@
 import { Navbar } from '@/components/layout/Navbar';
 import { LandingHero } from '@/components/features/landing/LandingHero';
+import { BuilderTeaser } from '@/components/features/landing/BuilderTeaser';
 import { MoodSection } from '@/components/features/landing/MoodSection';
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <main>
       <Navbar />
       <LandingHero />
+      <BuilderTeaser />
       <MoodSection />
 
       <footer className="bg-footer py-12 px-6">

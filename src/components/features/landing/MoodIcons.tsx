@@ -1,72 +1,88 @@
-export function EnergyIcon() {
+/** Mood-card icons — the same engraved gold line-art system as the ingredient
+    illustrations (stroke #D4A853, hairline fills), so cards and the ingredients
+    band read as one crafted set. Decorative: parents mark them aria-hidden. */
+
+const GOLD = '#D4A853';
+
+type IconProps = { size?: number };
+
+/** طاقة — lightning bolt. */
+export function EnergyIcon({ size = 44 }: IconProps) {
   return (
-    <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="34" cy="34" r="34" fill="#D4AF37" fillOpacity="0.1" />
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
       <path
-        d="M40 10 L19 40 H31.5 L28 58 L49 28 H36.5 Z"
-        fill="#D4AF37"
+        d="M27,5 L13,27 h8.5 L19,43 L35,19 h-9 Z"
+        stroke={GOLD} strokeWidth="1.6" strokeLinejoin="round" strokeLinecap="round"
+        fill="rgba(212,168,83,0.08)"
       />
-      <path
-        d="M40 10 L21 38 H33"
-        fill="#F0D060"
-        fillOpacity="0.45"
-      />
+      <path d="M9,12 l-3.5,-2" stroke={GOLD} strokeWidth="1.2" strokeLinecap="round" opacity="0.45" />
+      <path d="M40,36 l3.5,2" stroke={GOLD} strokeWidth="1.2" strokeLinecap="round" opacity="0.45" />
     </svg>
   );
 }
 
-export function MoonIcon() {
+/** سهر — crescent moon with stars. */
+export function MoonIcon({ size = 44 }: IconProps) {
   return (
-    <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="34" cy="34" r="34" fill="#7B9FBD" fillOpacity="0.1" />
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
       <path
-        d="M42 13 A22 22 0 1 0 55 41 A15 15 0 1 1 42 13 Z"
-        fill="#7B9FBD"
+        d="M29,7 A16.5,16.5 0 1,0 29,41 A13,13 0 1,1 29,7 Z"
+        stroke={GOLD} strokeWidth="1.6" strokeLinejoin="round"
+        fill="rgba(212,168,83,0.08)"
       />
-      <circle cx="49" cy="18" r="2.5" fill="#A8CCEA" fillOpacity="0.75" />
-      <circle cx="53" cy="29" r="1.5" fill="#A8CCEA" fillOpacity="0.55" />
+      <path
+        d="M37,11 l1.2,3.1 3.1,1.2 -3.1,1.2 -1.2,3.1 -1.2,-3.1 -3.1,-1.2 3.1,-1.2 Z"
+        fill={GOLD} opacity="0.75"
+      />
+      <circle cx="36" cy="28" r="1.2" fill={GOLD} opacity="0.5" />
     </svg>
   );
 }
 
-export function CreamyIcon() {
+/** كريمي — cup with a cream dollop and a steam curl. */
+export function CreamyIcon({ size = 44 }: IconProps) {
   return (
-    <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="34" cy="34" r="34" fill="#C4966E" fillOpacity="0.1" />
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      {/* cup */}
       <path
-        d="M10 28 Q20 14 30 28 Q40 42 50 28 Q60 14 66 24"
-        fill="none"
-        stroke="#C4966E"
-        strokeWidth="5"
-        strokeLinecap="round"
+        d="M13,22 H33 L31.8,32 Q30.8,38.5 23,38.5 Q15.2,38.5 14.2,32 Z"
+        stroke={GOLD} strokeWidth="1.6" strokeLinejoin="round"
+        fill="rgba(212,168,83,0.08)"
       />
+      {/* handle */}
+      <path d="M33,24 Q39,25 37.5,29.5 Q36.5,32.5 31.5,31.5" stroke={GOLD} strokeWidth="1.4" fill="none" />
+      {/* saucer */}
+      <path d="M11,42 H35" stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" opacity="0.7" />
+      {/* cream dollop cresting the rim */}
       <path
-        d="M10 42 Q20 28 30 42 Q40 56 50 42 Q60 28 66 38"
-        fill="none"
-        stroke="#C4966E"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeOpacity="0.45"
+        d="M16.5,22 Q17,16.5 21,15.5 Q25.5,14.5 27.5,17.5 Q29.5,20 28.5,22"
+        stroke={GOLD} strokeWidth="1.4" strokeLinecap="round" fill="rgba(212,168,83,0.1)"
       />
+      {/* steam curl */}
+      <path d="M23,11 Q25.5,8.5 23.5,5.5" stroke={GOLD} strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
     </svg>
   );
 }
 
-export function ChocolateIcon() {
+/** شوكولاتة — chocolate tablet with a snapped-off square. */
+export function ChocolateIcon({ size = 44 }: IconProps) {
   return (
-    <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="chocGrad" x1="12" y1="20" x2="12" y2="50" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#A06030" />
-          <stop offset="100%" stopColor="#5A2E0A" />
-        </linearGradient>
-      </defs>
-      <circle cx="34" cy="34" r="34" fill="#8B5A3C" fillOpacity="0.1" />
-      <rect x="12" y="20" width="44" height="30" rx="5" fill="url(#chocGrad)" />
-      <line x1="12" y1="35" x2="56" y2="35" stroke="#3D1A06" strokeWidth="1.5" strokeOpacity="0.4" />
-      <line x1="27" y1="20" x2="27" y2="50" stroke="#3D1A06" strokeWidth="1.5" strokeOpacity="0.4" />
-      <line x1="42" y1="20" x2="42" y2="50" stroke="#3D1A06" strokeWidth="1.5" strokeOpacity="0.4" />
-      <rect x="15" y="23" width="10" height="10" rx="2" fill="#C07840" fillOpacity="0.35" />
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <rect
+        x="10" y="12" width="23" height="23" rx="2.5"
+        stroke={GOLD} strokeWidth="1.6"
+        fill="rgba(212,168,83,0.08)"
+      />
+      <path d="M21.5,12 V35" stroke={GOLD} strokeWidth="1" opacity="0.5" />
+      <path d="M10,23.5 H33" stroke={GOLD} strokeWidth="1" opacity="0.5" />
+      {/* the snapped-off piece */}
+      <rect
+        x="35" y="27" width="8.5" height="8.5" rx="1.5"
+        transform="rotate(14 39 31)"
+        stroke={GOLD} strokeWidth="1.4"
+        fill="rgba(212,168,83,0.06)"
+      />
+      <circle cx="16" cy="18" r="1" fill={GOLD} opacity="0.4" />
     </svg>
   );
 }

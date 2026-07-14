@@ -2,12 +2,13 @@
 
 import { motion } from 'framer-motion';
 import { MoodCard } from './MoodCard';
+import { EnergyIcon, MoonIcon, CreamyIcon, ChocolateIcon } from './MoodIcons';
 
 const MOODS = [
-  { title: 'طاقة',      flavorNote: 'حاد ومركّز، مع لمسة من الحمضيات المشرقة',          price: '٤٥' },
-  { title: 'سهر',       flavorNote: 'ناعم وعميق، يرافقك في ساعات الليل الهادئة',        price: '٤٢' },
-  { title: 'كريمي',     flavorNote: 'مخملي وناعم، كالقشطة الطازجة تذوب على اللسان',     price: '٥٠' },
-  { title: 'شوكولاتة',  flavorNote: 'عميق وغني، مع خلفية من الشوكولاتة الداكنة',         price: '٤٨' },
+  { title: 'طاقة',      flavorNote: 'حاد ومركّز، مع لمسة من الحمضيات المشرقة',          price: '٤٥', icon: <EnergyIcon size={48} /> },
+  { title: 'سهر',       flavorNote: 'ناعم وعميق، يرافقك في ساعات الليل الهادئة',        price: '٤٢', icon: <MoonIcon size={48} /> },
+  { title: 'كريمي',     flavorNote: 'مخملي وناعم، كالقشطة الطازجة تذوب على اللسان',     price: '٥٠', icon: <CreamyIcon size={48} /> },
+  { title: 'شوكولاتة',  flavorNote: 'عميق وغني، مع خلفية من الشوكولاتة الداكنة',         price: '٤٨', icon: <ChocolateIcon size={48} /> },
 ] as const;
 
 export function MoodSection() {
