@@ -116,3 +116,18 @@
     }
   }
 }
+
+/* Spice-pattern veil: dissolves the tiled texture on ALL sides — a vertical
+   fade so it emerges from / melts back into the dark (no hard horizontal cut),
+   intersected with a soft center hole so it never crowds the text. Reads as
+   atmosphere, not an image dropped in the middle. */
+.spice-veil {
+  -webkit-mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 32%, #000 68%, transparent 100%),
+    radial-gradient(ellipse 60% 58% at 50% 50%, transparent 26%, #000 74%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to bottom, transparent 0%, #000 32%, #000 68%, transparent 100%),
+    radial-gradient(ellipse 60% 58% at 50% 50%, transparent 26%, #000 74%);
+  mask-composite: intersect;
+}
